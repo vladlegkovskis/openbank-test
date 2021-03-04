@@ -34,7 +34,7 @@ export function FormMemoryWord(props: FormMemoryWordProps): JSX.Element {
         return (
           <Box p="25px 0 40px">
             <FormLabel fontWeight="600" fontSize="0.7rem" htmlFor="name">
-              {translate('form.memoryWord')}{' '}
+              {translate('form.memoryWord')}
               <Icon name="info-outline" color="brand.600" size="14px" />
             </FormLabel>
             <InputGroup size="sm">
