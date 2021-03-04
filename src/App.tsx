@@ -104,7 +104,6 @@ export function App(): JSX.Element {
         initialValues={formInitialValues}
         validationSchema={currentValidationSchema}
         onSubmit={onStepSubmit}
-        isInitialValid={currentValidationSchema.isValidSync(formInitialValues)}
       >
         {(props) => {
           return (
