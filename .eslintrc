@@ -1,0 +1,105 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "tsconfigRootDir": ".",
+    "extraFileExtensions": [".css"]
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "mocha": true,
+    "cypress/globals": true
+  },
+  "plugins": ["@typescript-eslint", "testing-library", "react-hooks", "prettier", "cypress", "eslint-plugin-cypress", "jest"],
+  "extends": [
+    "airbnb",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/typescript",
+    "plugin:prettier/recommended",
+    "plugin:cypress/recommended",
+    "plugin:jest/recommended"
+  ],
+  "rules": {
+    /**
+     * @description rules of eslint official
+     */
+    /**
+     * @bug https://github.com/benmosher/eslint-plugin-import/issues/1282
+     * "import/named" temporary disable.
+     */
+    "import/named": "off",
+    /**
+     * @bug?
+     * "import/export" temporary disable.
+     */
+    "react/jsx-curly-newline": "off",
+    "no-multiple-empty-lines": [2, {"max": 99999, "maxEOF": 0}],
+    "import/order": ["error", {
+      "groups": [["index", "sibling", "parent", "internal", "external", "builtin"]],
+      "newlines-between": "never"
+    }],
+    "no-plusplus": "off",
+    "no-bitwise": "off",
+    "react/jsx-props-no-spreading": "off",
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "import/export": "off",
+    "import/no-default-export": "warn",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "import/prefer-default-export": "off", // Allow single Named-export
+    "no-unused-expressions": ["warn", {
+      "allowShortCircuit": true,
+      "allowTernary": true
+    }], // https://eslint.org/docs/rules/no-unused-expressions
+
+    /**
+     * @description rules of @typescript-eslint
+     */
+    "@typescript-eslint/prefer-interface": "off", // also want to use "type"
+    "@typescript-eslint/explicit-function-return-type": "off", // annoying to force return type
+
+    /**
+     * @description rules of eslint-plugin-react
+     */
+    "react/jsx-filename-extension": ["warn", {
+      "extensions": [".tsx", ".ts", ".js"]
+    }], // also want to use with ".tsx"
+    "react/prop-types": "off", // Is this incompatible with TS props type?
+
+    /**
+     * @description rules of eslint-plugin-react-hooks
+     */
+    "react-hooks/rules-of-hooks": "error",
+    "jest/expect-expect": [
+      "error",
+      {
+        "assertFunctionNames": [
+          "expect", "cy.contains"
+        ]
+      }
+    ],
+    /**
+     * @description rules of eslint-plugin-prettier
+     */
+    "prettier/prettier": [
+      "error", {
+        "singleQuote": true,
+        "semi": true,
+        "endOfLine": "auto"
+      }
+    ]
+  },
+  "globals": {
+    "cy": true
+  }
+}

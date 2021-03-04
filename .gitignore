@@ -1,5 +1,11 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# editor files
+# https://github.com/github/gitignore/blob/master/Global/JetBrains.gitignore
+# User-specific stuff from JetBrains:
+.idea/*
+.cache/*
+
 # dependencies
 /node_modules
 /.pnp
@@ -17,7 +23,6 @@
 .env.development.local
 .env.test.local
 .env.production.local
-
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
