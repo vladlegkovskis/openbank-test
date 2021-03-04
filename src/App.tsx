@@ -24,7 +24,6 @@ const {
 
 export function App(): JSX.Element {
   const toast = useToast();
-  const [termsAgreed, setTermsAgreed] = React.useState<boolean>(false);
   const [step, setStep] = React.useState<number>(STARTING_STEP);
   const [apiResponse, setApiResponse] = React.useState<number>(0);
   const isSubmitStep = step === STEPS.findIndex((s) => s === 'Form');
@@ -90,10 +89,7 @@ export function App(): JSX.Element {
   );
 
   const stepPages = [
-    <ProductInformation
-      setTermsAgreed={setTermsAgreed}
-      termsAgreed={termsAgreed}
-    />,
+    <ProductInformation />,
     <PasswordForm
       memoryWord={memoryWord}
       password={password}

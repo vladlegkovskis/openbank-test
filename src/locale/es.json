@@ -6,8 +6,7 @@
     "infoBoxOne": "Guarda aquí todas tus contraseñas, datos o cualquier información, olvida las notas de papel y las aplicaciones no protegidas.",
     "infoBoxTwo": "Crea tu clave maestra: solo tú podrás acceder a tus secretos con ella.",
     "whatInfoSubTitle": "Qué datos puedes guardar",
-    "whatInfoText": "Por ejemplo, el número de tu tarjeta, el PIN y el PUK de tu teléfono móvil, el número de serie de alguno de tus dispositivos o cualquier información que necesites tener en lugar seguro.",
-    "acceptTerms": "Acepto los términos y condiciones"
+    "whatInfoText": "Por ejemplo, el número de tu tarjeta, el PIN y el PUK de tu teléfono móvil, el número de serie de alguno de tus dispositivos o cualquier información que necesites tener en lugar seguro."
   },
   "form": {
     "confirmPassword": "Repite tu Contraseña Maestra",
