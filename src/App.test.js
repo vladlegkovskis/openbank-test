@@ -47,6 +47,7 @@ describe('App test suit', () => {
   test('assert Password page', async () => {
     // launch [info] page
     const { getByText } = setup();
+    fireEvent.click(getByText('Acepto los términos y condiciones'));
     fireEvent.click(getByText('Siguente'));
     // launch [password] page
     await waitFor(() => {
@@ -61,21 +62,25 @@ describe('App test suit', () => {
   test('enter password that does not match the RegEx', async () => {
     // launch [info] page
     const { queryByPlaceholderText, getByText } = setup();
+    fireEvent.click(getByText('Acepto los términos y condiciones'));
     fireEvent.click(getByText('Siguente'));
     // launch [password] page
-    await waitFor(() => {
+    await waitFor(async () => {
       const passwordInput = queryByPlaceholderText('Crea tu contraseña');
       fireEvent.change(passwordInput, { target: { value: 'wrongpass' } });
       fireEvent.click(getByText('Enviar'));
-      expect(
-        screen.queryByText('Mínimo 8 car, una mayúscula y un dígito')
-      ).toBeInTheDocument();
+      await waitFor(() => {
+        expect(
+          screen.queryByText('Mínimo 8 car, una mayúscula y un dígito')
+        ).toBeInTheDocument();
+      });
     });
   });
 
   test('enter passwords that do not match', async () => {
     // launch [info] page
     const { queryByPlaceholderText, getByText } = setup();
+    fireEvent.click(getByText('Acepto los términos y condiciones'));
     fireEvent.click(getByText('Siguente'));
     // launch [password] page
     await waitFor(async () => {
@@ -90,15 +95,18 @@ describe('App test suit', () => {
         target: { value: '001drowssaP' },
       });
       fireEvent.click(getByText('Enviar'));
-      expect(
-        screen.queryByText('La contraseña repetida debe coincidir')
-      ).toBeInTheDocument();
+      await waitFor(() => {
+        expect(
+          screen.queryByText('La contraseña repetida debe coincidir')
+        ).toBeInTheDocument();
+      });
     });
   });
 
   test('enter correct password', async () => {
     // launch [info] page
     const { queryByPlaceholderText, getByText } = setup();
+    fireEvent.click(getByText('Acepto los términos y condiciones'));
     fireEvent.click(getByText('Siguente'));
     // launch [password] page
     await waitFor(async () => {
@@ -113,7 +121,9 @@ describe('App test suit', () => {
         target: { value: 'Password100' },
       });
       fireEvent.click(getByText('Enviar'));
-      expect(screen.queryByText('Loading...')).toBeInTheDocument();
+      await waitFor(() => {
+        expect(screen.queryByText('Loading...')).toBeInTheDocument();
+      });
     });
   });
 });

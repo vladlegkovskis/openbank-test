@@ -12,7 +12,7 @@ export function ProductInformationTerms(
 ): JSX.Element {
   const { subtitle, text } = props;
   return (
-    <Box pb="40px">
+    <Box>
       <Text fontSize="md" fontWeight="600">
         {translate(subtitle)}
       </Text>

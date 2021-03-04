@@ -26,9 +26,9 @@
 
 ### Testing
 
-**Unit testing** <sub><sup>`npm run test:unit`</sup></sub>:  completed with  `Jest` and  `@testing-library/react`.
+**Unit testing** `npm run test:unit`  completed with  `Jest` and  `@testing-library/react`.
 
-**e2e testing** <sub><sup>`npm run test:e2e`</sup></sub>:  user interface, and the business logic is completed with  `Cypress`.
+**e2e testing** `npm run ci`  user interface, and the business logic testing is completed with  `Cypress`.
 
 ### Responsive Approach
 This application uses media queries. In order to see the mobile view, the user can open the application with a mobile device (or devtools mobile).

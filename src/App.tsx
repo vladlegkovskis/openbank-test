@@ -24,6 +24,7 @@ const {
 
 export function App(): JSX.Element {
   const toast = useToast();
+  const [termsAgreed, setTermsAgreed] = React.useState<boolean>(false);
   const [step, setStep] = React.useState<number>(STARTING_STEP);
   const [apiResponse, setApiResponse] = React.useState<number>(0);
   const isSubmitStep = step === STEPS.findIndex((s) => s === 'Form');
@@ -80,19 +81,23 @@ export function App(): JSX.Element {
     [setStep, step, isSubmitStep]
   );
   const onPrevClick = React.useCallback(
-    (event) => {
+    (event, actions) => {
       event.preventDefault();
+      actions.resetForm();
       setStep(() => Math.max(step - 1, 0));
     },
     [step, setStep]
   );
 
   const stepPages = [
-    <ProductInformation />,
+    <ProductInformation
+      setTermsAgreed={setTermsAgreed}
+      termsAgreed={termsAgreed}
+    />,
     <PasswordForm
+      memoryWord={memoryWord}
       password={password}
       repeatPassword={repeatPassword}
-      memoryWord={memoryWord}
     />,
     <Feedback apiResponse={apiResponse} />,
   ];
@@ -132,7 +137,7 @@ export function App(): JSX.Element {
                 ) : (
                   <Flex justify="space-between">
                     {step !== STARTING_STEP ? (
-                      <Button onClick={onPrevClick}>
+                      <Button onClick={(event) => onPrevClick(event, props)}>
                         {translate('button.cancel')}
                       </Button>
                     ) : (

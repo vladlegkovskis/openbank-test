@@ -13,6 +13,7 @@ context('End to end test for the application', () => {
 
   describe('Password page', () => {
     beforeEach(() => {
+      cy.contains(/acepto los términos y condiciones/i).click();
       cy.contains(/siguente/i).click();
     });
     it('assert text on the page', () => {
