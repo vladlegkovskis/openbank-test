@@ -16,7 +16,7 @@ export function ProductInformationTerms(
       <Text fontSize="md" fontWeight="600">
         {translate(subtitle)}
       </Text>
-      <Text color="#597686" fontSize="sm">
+      <Text color="#597686" fontSize="sm" pb="40px">
         {translate(text)}
       </Text>
     </Box>
