@@ -63,7 +63,7 @@ describe('App test suit', () => {
     const { queryByPlaceholderText, getByText } = setup();
     fireEvent.click(getByText('Siguente'));
     // launch [password] page
-    await waitFor(async () => {
+    await waitFor(() => {
       const passwordInput = queryByPlaceholderText('Crea tu contraseña');
       fireEvent.change(passwordInput, { target: { value: 'wrongpass' } });
       fireEvent.click(getByText('Enviar'));
@@ -78,7 +78,7 @@ describe('App test suit', () => {
     const { queryByPlaceholderText, getByText } = setup();
     fireEvent.click(getByText('Siguente'));
     // launch [password] page
-    await waitFor(async () => {
+    await waitFor(() => {
       const passwordInput = queryByPlaceholderText('Crea tu contraseña');
       const repeatPasswordInput = queryByPlaceholderText(
         'Repite tu contraseña'
@@ -101,7 +101,7 @@ describe('App test suit', () => {
     const { queryByPlaceholderText, getByText } = setup();
     fireEvent.click(getByText('Siguente'));
     // launch [password] page
-    await waitFor(async () => {
+    await waitFor(() => {
       const passwordInput = queryByPlaceholderText('Crea tu contraseña');
       const repeatPasswordInput = queryByPlaceholderText(
         'Repite tu contraseña'
